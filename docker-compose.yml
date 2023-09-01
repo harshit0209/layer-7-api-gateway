@@ -1,0 +1,29 @@
+version: "3"
+services:
+  
+
+  http-service1:
+    build:
+      context: ./http-server/
+      dockerfile: dockerfile
+    environment:
+      HTTP_HOST: "service1"
+      HTTP_PORT: ":8082"
+
+  http-service2:
+    build:
+      context: ./http-server/
+      dockerfile: dockerfile
+    environment:
+      HTTP_HOST: "service2"
+      HTTP_PORT: ":8083"
+    ports:
+      - "8083:8083"
+
+  http-gateway:
+    build:
+      context: ./gateway/
+      dockerfile: dockerfile
+    ports:
+      - "8089:8089"
+

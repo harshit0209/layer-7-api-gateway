@@ -1,0 +1,19 @@
+# Use the official Go image as the base image
+FROM golang:1.17-alpine
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Copy the Go source code into the container
+COPY . .
+
+# Build the Go application
+RUN go build -o http_gateway .
+
+# Expose the port that the HTTP server will listen on
+ 
+
+# Set environment variables for the HTTP server
+ 
+# Run the HTTP server when the container starts
+CMD ["./http_gateway"]
